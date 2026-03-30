@@ -388,6 +388,17 @@ export default function UeberUnsPage() {
           </Link>
         </div>
       </section>
+      {/* ── Demo Disclaimer ───────────────────────────────────── */}
+      <section className="py-8 px-4 bg-[#fdf8f0] border-t border-[#e8d9c0]">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-[10px] text-[#a67c5b] uppercase tracking-widest mb-2">Showcase Projekt</p>
+          <p className="text-sm text-[#8b5a3a] leading-relaxed italic">
+            Hinweis: AromaRöstung ist eine fiktive Marke für diese Beispiel-Website. 
+            Alle Personen, Geschichten und Daten dienen ausschließlich Demonstrationszwecken 
+            von Schnell im Web.
+          </p>
+        </div>
+      </section>
     </div>
   );
 }

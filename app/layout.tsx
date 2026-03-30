@@ -6,6 +6,7 @@ import Navbar from "@/components/layout/Navbar";
 import CartSheet from "@/components/cart/CartSheet";
 import DemoBanner from "@/components/layout/DemoBanner";
 import CookieBanner from "@/components/layout/CookieBanner";
+import Footer from "@/components/layout/Footer";
 import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({
@@ -26,6 +27,10 @@ export const metadata: Metadata = {
   description:
     "Handverlesene Arabica-Bohnen, schonend geröstet. Entdecken Sie Single-Origins aus Äthiopien, Kolumbien, Sumatra und mehr.",
   keywords: ["Kaffee", "Spezialitätenkaffee", "Kafferösterei", "Wien", "Bio", "Fair Trade"],
+  robots: {
+    index: false,
+    follow: false,
+  },
   openGraph: {
     title: "AromaRöstung – Spezialitätenkaffee aus Wien",
     description: "Handverlesene Arabica-Bohnen, schonend geröstet.",
@@ -48,6 +53,7 @@ export default function RootLayout({
         <CartProvider>
           <Navbar />
           <main className="flex-1 pb-10">{children}</main>
+          <Footer />
           <CartSheet />
 
           {/* Sonner toast container */}

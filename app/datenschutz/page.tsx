@@ -35,12 +35,22 @@ export default function DatenschutzPage() {
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
         {/* Demo-Hinweis */}
-        <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5">
-          <p className="text-amber-800 text-sm font-medium">
-            <strong>Hinweis:</strong> Dies ist eine Demo-Website, erstellt von schnell-im-web.at.
-            Es werden keine echten personenbezogenen Daten erhoben, gespeichert oder verarbeitet.
-            Die folgende Datenschutzerklärung dient nur zu Demonstrationszwecken.
+        <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6 flex flex-col gap-4">
+          <p className="text-amber-800 text-sm font-medium leading-relaxed">
+            <strong>Wichtiger Hinweis:</strong> Dies ist eine Demo-Website von Schnell im Web.
+            Diese Seite dient ausschließlich Illustrationszwecken. Es werden im Rahmen dieser 
+            Demonstration keine echten personenbezogenen Daten erhoben oder verarbeitet.
           </p>
+          <div className="flex items-center gap-2 pt-2 border-t border-amber-200/50">
+            <p className="text-xs text-amber-700">Die echte Datenschutzerklärung unserer Agentur finden Sie hier:</p>
+            <Link 
+              href="https://schnell-im-web.at/datenschutz" 
+              target="_blank"
+              className="text-xs font-bold text-amber-900 underline underline-offset-2 hover:text-[#1a0e08] decoration-amber-400 hover:decoration-[#1a0e08] transition-all"
+            >
+              schnell-im-web.at/datenschutz
+            </Link>
+          </div>
         </div>
 
         {[

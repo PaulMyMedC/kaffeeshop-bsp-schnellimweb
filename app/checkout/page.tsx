@@ -28,10 +28,6 @@ interface FormData {
   city: string;
   zip: string;
   country: string;
-  cardNumber: string;
-  expiry: string;
-  cvv: string;
-  nameOnCard: string;
 }
 
 const initialForm: FormData = {
@@ -43,10 +39,6 @@ const initialForm: FormData = {
   city: "",
   zip: "",
   country: "Österreich",
-  cardNumber: "",
-  expiry: "",
-  cvv: "",
-  nameOnCard: "",
 };
 
 export default function CheckoutPage() {
@@ -146,7 +138,7 @@ export default function CheckoutPage() {
                     value={form.email}
                     onChange={handleChange}
                     required
-                    placeholder="max@beispiel.at"
+                    placeholder="beispiel@schnell-im-web.at"
                     className="sm:col-span-2"
                   />
                   <Field
@@ -155,7 +147,7 @@ export default function CheckoutPage() {
                     type="tel"
                     value={form.phone}
                     onChange={handleChange}
-                    placeholder="+43 1 234 5678"
+                    placeholder="0000 / 000000"
                     className="sm:col-span-2"
                   />
                   <Field
@@ -214,42 +206,38 @@ export default function CheckoutPage() {
                   </span>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <Field
-                    label="Name auf der Karte"
-                    name="nameOnCard"
-                    value={form.nameOnCard}
-                    onChange={handleChange}
-                    placeholder="Max Mustermann"
-                    className="sm:col-span-2"
-                  />
-                  <Field
-                    label="Kartennummer"
-                    name="cardNumber"
-                    value={form.cardNumber}
-                    onChange={handleChange}
-                    placeholder="4242 4242 4242 4242"
-                    className="sm:col-span-2"
-                  />
-                  <Field
-                    label="Ablaufdatum"
-                    name="expiry"
-                    value={form.expiry}
-                    onChange={handleChange}
-                    placeholder="MM/JJ"
-                  />
-                  <Field
-                    label="CVV"
-                    name="cvv"
-                    value={form.cvv}
-                    onChange={handleChange}
-                    placeholder="123"
-                  />
+                <div className="space-y-4">
+                  <div className="flex flex-col gap-3">
+                    {/* Credit Card Button */}
+                    <div className="flex items-center gap-3 px-4 py-3 rounded-xl border border-[#dfc9a8] bg-[#fdf8f0] opacity-60 cursor-not-allowed">
+                      <CreditCard className="h-5 w-5 text-[#a67c5b]" />
+                      <span className="text-sm font-semibold text-[#1a0e08]">Kreditkarte</span>
+                      <span className="ml-auto text-[10px] uppercase tracking-wider text-[#a67c5b] font-bold">Inaktiv</span>
+                    </div>
+
+                    {/* Apple Pay Button */}
+                    <div className="flex items-center gap-3 px-4 py-3 rounded-xl border border-[#dfc9a8] bg-[#fdf8f0] opacity-60 cursor-not-allowed">
+                      <div className="h-5 w-5 flex items-center justify-center bg-black rounded-md">
+                        <span className="text-[10px] font-bold text-white leading-none">Pay</span>
+                      </div>
+                      <span className="text-sm font-semibold text-[#1a0e08]">Apple Pay</span>
+                      <span className="ml-auto text-[10px] uppercase tracking-wider text-[#a67c5b] font-bold">Inaktiv</span>
+                    </div>
+
+                    {/* PayPal Button */}
+                    <div className="flex items-center gap-3 px-4 py-3 rounded-xl border border-[#dfc9a8] bg-[#fdf8f0] opacity-60 cursor-not-allowed">
+                      <div className="h-5 w-5 flex items-center justify-center bg-[#003087] rounded-md">
+                        <span className="text-[8px] font-black text-white italic leading-none">PP</span>
+                      </div>
+                      <span className="text-sm font-semibold text-[#1a0e08]">PayPal</span>
+                      <span className="ml-auto text-[10px] uppercase tracking-wider text-[#a67c5b] font-bold">Inaktiv</span>
+                    </div>
+                  </div>
                 </div>
 
-                <p className="text-xs text-[#a67c5b] mt-4 flex items-center gap-1.5">
+                <p className="text-xs text-[#a67c5b] mt-6 flex items-center gap-1.5">
                   <Lock className="h-3 w-3" />
-                  Ihre Zahlungsdaten werden verschlüsselt übertragen. (Demo-Modus)
+                  Keine echte Zahlung möglich – Diese Website dient ausschließlich Demonstrationszwecken.
                 </p>
               </section>
             </div>
@@ -311,6 +299,13 @@ export default function CheckoutPage() {
                     <span>€{total.toFixed(2)}</span>
                   </div>
                   <p className="text-xs text-[#a67c5b]">inkl. 20% MwSt.</p>
+                </div>
+
+                {/* Demo Notice */}
+                <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-center">
+                  <p className="text-xs text-amber-800 font-medium">
+                    Dies ist ein Demo-Formular. Es werden keine Daten verarbeitet.
+                  </p>
                 </div>
 
                 {/* Submit */}
